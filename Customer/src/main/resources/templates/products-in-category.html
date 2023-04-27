@@ -44,6 +44,7 @@
           <div th:replace="fragments::nav-product">
           </div>
           <!--all product-->
+          <br>
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
@@ -52,7 +53,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-lg-12">
                 <div class="special-menu text-center">
                   <div class="button-group filter-button-group">
@@ -62,6 +63,7 @@
                 </div>
               </div>
             </div>
+            -->
             <div class="row special-list">
               <!--<div class="col-lg-3 col-md-6 special-grid best-seller" >
                   <div class="products-single fix">
@@ -81,7 +83,7 @@
                       </div>
                   </div>
               </div>-->
-              <div class="col-lg-3 col-md-6 special-grid" th:each="product : ${products}"
+              <div class="col-lg-3 col-md-6 special-grid" th:each="product : ${products}">
 				<form th:action="@{/add-to-cart}" method="post">
 	                <div class="products-single fix">
 	                  <div class="box-img-hover">
@@ -96,8 +98,8 @@
 	                    </div>
 	                  </div>
 	                  <div class="why-text">
-	                    <h4 th:text="${product.name}">Almond-Topped Fish</h4>
-	                    <h5 th:text="'$' + ${product.costPrice}"> $36.00</h5>
+	                    <h4 th:text="${product.name}"></h4>
+	                    <h5 th:text="'$' + ${product.costPrice}"></h5>
 	                  </div>
 	                </div>
 				</form>
@@ -117,7 +119,7 @@
           </div>
           <div class="filter-sidebar-left">
             <div class="title-left">
-              <h3>Categorias</h3>
+              <h3>Categorías</h3>
             </div>
             <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men"
                  data-children=".sub-men" th:each="category : ${categories}">

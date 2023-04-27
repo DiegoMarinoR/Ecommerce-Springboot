@@ -65,7 +65,19 @@ public class ProductController {
 	}
 
 	@GetMapping("/products-in-category/{id}")
-	public String getProductsInCategory(@PathVariable("id") Long categoryId, Model model) {
+	public String getProductsInCategory(@PathVariable("id") Long categoryId, Model model, Principal principal,
+			HttpSession session) {
+		if (principal != null) {
+			session.setAttribute("username", principal.getName());
+			Customer customer = customerService.findByUsername(principal.getName());
+			if (customer.getShoppingCart() != null) {
+				ShoppingCart cart = customer.getShoppingCart();
+				session.setAttribute("totalItems", cart.getTotalItems());
+			}
+
+		} else {
+			session.removeAttribute("username");
+		}
 		Category category = categoryService.findById(categoryId);
 		List<CategoryDto> categories = categoryService.getCategoryAndProduct();
 		List<Product> products = productService.getProductsInCategory(categoryId);
@@ -76,7 +88,18 @@ public class ProductController {
 	}
 
 	@GetMapping("/high-price")
-	public String filterHighPrice(Model model) {
+	public String filterHighPrice(Model model, Principal principal, HttpSession session) {
+		if (principal != null) {
+			session.setAttribute("username", principal.getName());
+			Customer customer = customerService.findByUsername(principal.getName());
+			if (customer.getShoppingCart() != null) {
+				ShoppingCart cart = customer.getShoppingCart();
+				session.setAttribute("totalItems", cart.getTotalItems());
+			}
+
+		} else {
+			session.removeAttribute("username");
+		}
 		List<Category> categories = categoryService.findAllByActivated();
 		List<CategoryDto> categoryDtoList = categoryService.getCategoryAndProduct();
 		List<Product> products = productService.filterHighPrice();
@@ -87,7 +110,18 @@ public class ProductController {
 	}
 
 	@GetMapping("/low-price")
-	public String filterLowPrice(Model model) {
+	public String filterLowPrice(Model model, Principal principal, HttpSession session) {
+		if (principal != null) {
+			session.setAttribute("username", principal.getName());
+			Customer customer = customerService.findByUsername(principal.getName());
+			if (customer.getShoppingCart() != null) {
+				ShoppingCart cart = customer.getShoppingCart();
+				session.setAttribute("totalItems", cart.getTotalItems());
+			}
+
+		} else {
+			session.removeAttribute("username");
+		}
 		List<Category> categories = categoryService.findAllByActivated();
 		List<CategoryDto> categoryDtoList = categoryService.getCategoryAndProduct();
 		List<Product> products = productService.filterLowPrice();
