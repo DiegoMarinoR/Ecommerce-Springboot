@@ -44,17 +44,17 @@ public class AuthController {
             }
             Customer customer = customerService.findByUsername(customerDto.getUsername());
             if(customer != null){
-                model.addAttribute("username", "Username have been registered");
+                model.addAttribute("username", "Usuario ya ha sido registrado");
                 model.addAttribute("customerDto",customerDto);
                 return "register";
             }
             if(customerDto.getPassword().equals(customerDto.getRepeatPassword())){
                 customerDto.setPassword(passwordEncoder.encode(customerDto.getPassword()));
                 customerService.save(customerDto);
-                model.addAttribute("success", "Register successfully");
+                model.addAttribute("success", "Registro Exitoso");
                 return "register";
             }else{
-                model.addAttribute("password", "Password is not same");
+                model.addAttribute("password", "¡Las contraseñas no coinciden!");
                 model.addAttribute("customerDto",customerDto);
                 return "register";
             }

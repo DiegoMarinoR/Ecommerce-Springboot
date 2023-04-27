@@ -1,13 +1,19 @@
 package com.ecommerce.library.service;
 
+import java.util.List;
+
 import com.ecommerce.library.dto.CustomerDto;
 import com.ecommerce.library.model.Customer;
 
 public interface CustomerService {
 
-    CustomerDto save(CustomerDto customerDto);
+	/* Admin */
+	List<Customer> findAll();
 
-    Customer findByUsername(String username);
+	/* Customer */
+	CustomerDto save(CustomerDto customerDto);
 
-    Customer saveInfor(Customer customer);
+	Customer findByUsername(String username);
+
+	Customer saveInfor(Customer customer);
 }

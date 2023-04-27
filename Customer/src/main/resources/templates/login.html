@@ -58,6 +58,10 @@
                 <p>Saliste de la sesión</p>
             </div>
 
+			<div th:if = "${param.success}" class="text-center alert alert-success">
+                <p>Te registraste correctamente</p>
+            </div>
+
             <form th:action="@{/do-login}" method="post">
                 <div class="input-form">
                     <!-- <span>User name</span> -->

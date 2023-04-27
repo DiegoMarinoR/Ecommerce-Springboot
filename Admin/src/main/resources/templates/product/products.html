@@ -25,13 +25,20 @@
             <div class="container-fluid">
                 <div>
                     <form th:action="@{/search-result/0}" method="get">
-                        <input type="text" id="search" name="keyword" placeholder="Search products">
-                        <button type="submit" class = "btn btn-primary">Search</button>
+                        <div class="row">
+	                        <div class="input-group col-md-3">
+				  				<input type="text" id="search" class="form-control" style="width: 100px;" name="keyword" placeholder="Buscar un producto...">
+				  				<div class="input-group-append">
+				    				<button type="submit" class = "btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
+				  				</div>
+							</div>
+                        </div>
                     </form>
                 </div>
+                <br>
                 <!-- Page Heading -->
                 <div th:if = "${size == 0}">
-                    <p>No products in shop</p>
+                    <p>No existen productos en la tienda</p>
                 </div>
                 <div th:if = "${success}" class="text-center alert alert-success">
                     <p th:text = "${success}"></p>
@@ -39,17 +46,19 @@
                 <div th:if = "${error}" class="text-center alert alert-danger">
                     <p th:text = "${error}"></p>
                 </div>
-                <a class="btn btn-primary" th:href = "@{/add-product}">Add new product</a>
+                <br>
+                <a class="btn btn-primary" th:href = "@{/add-product}"><i class="fas fa-plus"></i> Añadir Nuevo Producto</a>
+                <br><br>
                 <table class="table table-striped" th:if = "${size > 0}">
                     <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Update</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Actualizar</th>
+                        <th scope="col">Acción</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -59,10 +68,10 @@
                         <td th:text = "${product.costPrice}"></td>
                         <td th:text = "${product.currentQuantity}"></td>
                         <td><img src="" style="height: 40px; width: 40px;" th:src = "*{'data:image/jpeg;base64,' + {product.image}}"></td>
-                        <td><a th:href="@{/update-product/{id} (id = ${product.id})}" class="btn btn-primary">Update</a></td>
+                        <td><a th:href="@{/update-product/{id} (id = ${product.id})}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Actualizar</a></td>
                         <td>
-                            <a th:if = "${product.activated == false}" th:href="@{/enable-product/{id} (id = ${product.id})}" class="btn btn-warning">Enable</a>
-                            <a th:if = "${product.deleted == false}" th:href = "@{/delete-product/{id} (id = ${product.id})}" class="btn btn-danger">Delete</a>
+                            <a th:if = "${product.activated == false}" th:href="@{/enable-product/{id} (id = ${product.id})}" class="btn btn-warning"><i class="fas fa-bolt"></i> Activar</a>
+                            <a th:if = "${product.deleted == false}" th:href = "@{/delete-product/{id} (id = ${product.id})}" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
                         </td>
                     </tr>
                     </tbody>
@@ -71,13 +80,13 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">
                         <li th:if = "${currentPage != 0}" class="page-item">
-                            <a th:href="@{'/products/' + ${currentPage - 0}}" class="page-link" href="#">Previous</a>
+                            <a th:href="@{'/products/' + ${currentPage - 0}}" class="page-link" href="#">Anterior</a>
                         </li>
                         <li th:each = "i : ${#numbers.sequence(1, totalPages)}" th:classappend="${currentPage == i - 1 ? 'active' : ''}" class="page-item">
                             <a th:href="@{'/products/' + ${i - 1}}" class="page-link" href="#"><span th:text = "${i}"></span></a>
                         </li>
                         <li th:if = "${currentPage + 1 != totalPages}" class="page-item">
-                            <a th:href="@{'/products/' + ${currentPage + 1}}" class="page-link" href="#">Next</a>
+                            <a th:href="@{'/products/' + ${currentPage + 1}}" class="page-link" href="#">Siguiente</a>
                         </li>
                     </ul>
                 </nav>
@@ -106,7 +115,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <div th:replace="fragments :: script"></div>
-<script th:src="@{/js/categories.js}"></script>
+<!-- <script th:src="@{/js/categories.js}"></script> -->
 
 </body>
 

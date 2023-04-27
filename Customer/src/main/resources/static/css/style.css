@@ -711,7 +711,7 @@ section .noi-dung .form h2{
     font-size: 2em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    border-bottom: 4px solid #ff4584;
+    border-bottom: 4px solid #FF0000;
     display: inline-block;
     letter-spacing: 1px;
 }
@@ -737,7 +737,7 @@ section .noi-dung .form .input-form input{
     border-radius: 30px;
     }
 section .noi-dung .form .input-form input[type="submit"]{
-    background: #ff4584;
+    background: #FF0000;
     color: #fff;
     outline: none;
     border: none;
@@ -761,7 +761,7 @@ section .noi-dung .form .input-form p{
     color: #607d8b;
 }
 section .noi-dung .form .input-form p a{
-    color: #ff4584;
+    color: #FF0000;
 }
 
 section .noi-dung .form h3{

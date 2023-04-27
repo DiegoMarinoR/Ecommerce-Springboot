@@ -26,22 +26,22 @@
 
                 <!-- Page Heading -->
                 <div th:if="${size == 0}">
-                    <p>No category</p>
+                    <p>No hay categorías</p>
                 </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add new category</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fas fa-plus"></i> Añadir Nueva Categoría</button><br><br>
                 <div th:if = "${success}" class="text-center alert alert-success">
                     <p th:text="${success}"></p>
                 </div>
                 <div th:if = "${failed}" class="text-center alert alert-danger">
                     <p th:text="${failed}"></p>
                 </div>
-                <table class="table table-bordered" th:if="${size > 0}">
+                <table class="table table-striped" th:if="${size > 0}">
                     <thead>
                     <tr>
-                        <th scope="col">Category Index</th>
-                        <th scope="col">Category Name</th>
-                        <th scope="col">Edit Category Name</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Index</th>
+                        <th scope="col">Nombre de Categoría</th>
+                        <th scope="col">Editar Nombre de Categoría</th>
+                        <th scope="col">Acción</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -52,8 +52,8 @@
                             <a id="editButton" th:href="@{/findById/(id = ${category.id})}" class="btn btn-primary">Update</a>
                         </td>
                         <td>
-                            <a th:if = "${category.is_activated} == true" th:href="@{/delete-category/(id = ${category.id})}" class="btn btn-warning">Deleted</a>
-                            <a th:if = "${category.is_activated} == false" th:href="@{/enable-category/(id = ${category.id})}" class="btn btn-primary">Enabled</a>
+                            <a th:if = "${category.is_activated} == true" th:href="@{/delete-category/(id = ${category.id})}" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
+                            <a th:if = "${category.is_activated} == false" th:href="@{/enable-category/(id = ${category.id})}" class="btn btn-warning"><i class="fas fa-bolt"></i> Activar</a>
                         </td>
                     </tr>
                     </tbody>
@@ -87,18 +87,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New Category</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> Añadir Nueva Categoría</h5>
             </div>
             <div class="modal-body">
 
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Name:</label>
+                        <label for="recipient-name" class="col-form-label">Nombre:</label>
                         <input type="text" class="form-control" th:field = "*{name}" id="recipient-name">
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-angle-left"></i> Cerrar</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
             </div>
         </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Edit Category</h5>
+                    <h5 class="modal-title">Editar Categoría</h5>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -119,13 +119,13 @@
                         <input type="text" class="form-control"  id="idEdit" name="id" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="nameEdit" class="col-form-label">Name:</label>
+                        <label for="nameEdit" class="col-form-label">Nombre:</label>
                         <input type="text" class="form-control"  id="nameEdit" name="name">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cerrar</button>
+                    <button type="submit" class="btn btn-primary"> Guardar</button>
                 </div>
             </div>
         </div>

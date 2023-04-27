@@ -123,11 +123,13 @@
                     <hr>
                 </div>
             </div>
-            <div class="col-12 d-flex shopping-box"><a th:href="@{/check-out}" class="ml-auto btn hvr-hover">Comprar</a>
+            <div class="col-9 d-flex shopping-box"><a th:href="@{/products}" class="btn btn-primary">Seleccionar Productos</a>
+            <div th:if = "${subTotal != 0}" class="col-12 d-flex shopping-box"><a th:href="@{/check-out}" class="ml-auto btn hvr-hover">Comprar</a>
             </div>
         </div>
 
     </div>
+</div>
 </div>
 <!-- End Cart -->
 

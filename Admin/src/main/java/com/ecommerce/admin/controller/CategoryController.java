@@ -26,7 +26,7 @@ public class CategoryController {
         List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
         model.addAttribute("size", categories.size());
-        model.addAttribute("title", "Category");
+        model.addAttribute("title", "Categoría");
         model.addAttribute("categoryNew", new Category());
         return "categories";
     }
@@ -35,10 +35,10 @@ public class CategoryController {
     public String add(@ModelAttribute("categoryNew") Category category, RedirectAttributes attributes){
         try {
             categoryService.save(category);
-            attributes.addFlashAttribute("success", "Added successfully");
+            attributes.addFlashAttribute("success", "¡Añadido exitosamente!");
         }catch (DataIntegrityViolationException e){
             e.printStackTrace();
-            attributes.addFlashAttribute("failed", "Failed to add because duplicate name");
+            attributes.addFlashAttribute("failed", "¡Error al añadir, la categoría ya está registrada!");
         }
         catch (Exception e){
             e.printStackTrace();

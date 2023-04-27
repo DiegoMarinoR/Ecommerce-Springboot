@@ -27,11 +27,11 @@
                 <form class="form-horizontal" th:action="@{/update-product/{id} (id = ${productDto.id})}" method="post" enctype="multipart/form-data" th:object = "${productDto}">
                     <fieldset>
                         <!-- Form Name -->
-                        <legend>ADD PRODUCTS</legend>
+                        <legend>EDITAR PRODUCTO</legend>
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+                            <label class="col-md-4 control-label" for="product_name">NOMBRE DE PRODUCTO</label>
                             <div class="col-md-4">
                                 <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md" required="" type="text">
                             </div>
@@ -39,10 +39,10 @@
 
                         <!-- Select Basic -->
                         <div class="form-group" >
-                            <label class="col-md-4 control-label" for="categories">PRODUCT CATEGORY</label>
+                            <label class="col-md-4 control-label" for="categories">CATEGORÍA DE PRODUCTO</label>
                             <div class="col-md-4">
                                 <select id="categories" th:field = "*{category}" name="categories" class="form-control">
-                                    <option th:value = "null">-SELECT-</option>
+                                    <option th:value = "null">SELECCIONAR</option>
                                     <option th:each = "category : ${categories}"
                                             th:value = "${category.id}"
                                             th:text = "${category.name}">
@@ -53,7 +53,7 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION </label>
+                            <label class="col-md-4 control-label" for="description">DESCRIPCIÓN DE PRODUCTO </label>
                             <div class="col-md-4">
                                 <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
 
@@ -62,7 +62,7 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
+                            <label class="col-md-4 control-label" for="available_quantity">STOCK</label>
                             <div class="col-md-4">
                                 <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md" required="" type="text">
                             </div>
@@ -70,7 +70,7 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="price">PRICE</label>
+                            <label class="col-md-4 control-label" for="price">PRECIO DE COSTO</label>
                             <div class="col-md-4">
                                 <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
                             </div>
@@ -78,25 +78,25 @@
 
                         <!-- Text input-->
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="sale">Sale Price</label>
+                            <label class="col-md-4 control-label" for="sale">PRECIO DE VENTA</label>
                             <div class="col-md-4">
                                 <input id="sale" name="sale" th:field = "*{salePrice}" class="form-control input-md" required="" type="text">
                             </div>
                         </div>
 
                         <!-- Text input-->
+                        
+                        <!-- File Button -->
                         <div class="form-group">
+                            <label class="col-md-4 control-label" for="imageProduct">IMAGEN DE PRODUCTO</label>
+                            <img style="height: 40px; width: 40px;" th:src = "*{'data:image/jpeg;base64,' + {image}}">
                             <div class="col-md-4">
-                                <!-- File Button -->
-                                <div class="form-group">
-                                    <label class="col-md-4 control-label" for="imageProduct">Image Product</label>
-                                    <img style="height: 40px; width: 40px;" th:src = "*{'data:image/jpeg;base64,' + {image}}">
-                                    <div class="col-md-4">
-                                        <input id="imageProduct" name="imageProduct" class="input-file" type="file">
-                                    </div>
-                                </div>
+                                <input id="imageProduct" name="imageProduct" class="form-control form-control-3" type="file">
+                            </div>
+                        </div>
+                        <a th:href="@{/products/0}" class="btn btn-secondary" role="button"><i class="fas fa-angle-left"></i> Volver a Productos</a>
+                    	<button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
                     </fieldset>
-                    <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
             <!-- /.container-fluid -->

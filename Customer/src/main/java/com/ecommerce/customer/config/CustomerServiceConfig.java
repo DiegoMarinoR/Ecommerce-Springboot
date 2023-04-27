@@ -18,7 +18,7 @@ public class CustomerServiceConfig implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Customer customer = customerRepository.findByUsername(username);
         if(customer == null){
-            throw new UsernameNotFoundException("Could not find username");
+            throw new UsernameNotFoundException("No se pudo encontrar usuario");
         }
         return new User(customer.getUsername(),
                 customer.getPassword(),
