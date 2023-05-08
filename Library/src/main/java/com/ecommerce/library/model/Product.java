@@ -18,8 +18,11 @@ public class Product {
     private Long id;
     private String name;
     private String description;
+    @Column(name = "cost_price")
     private double costPrice;
+    @Column(name = "sale_price")
     private double salePrice;
+    @Column(name = "current_quantity")
     private int currentQuantity;
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
