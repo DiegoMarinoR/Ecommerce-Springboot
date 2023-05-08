@@ -1,15 +1,6 @@
 package com.ecommerce.library.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,10 +18,12 @@ public class OrderDetail {
 	private Long id;
 
 	private int quantity;
+	@Column(name = "total_price")
 	private double totalPrice;
+	@Column(name = "unit_price")
 	private double unitPrice;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "order_id", referencedColumnName = "order_id")
 	private Order order;
 

@@ -17,10 +17,6 @@ r
 BLibrary/src/main/java/com/ecommerce/library/utils/ImageUpload.java,c\2\c2a049f8e8e181ca74fe8a39d05ba2a01f3b38be
 o
 ?Library/src/main/java/com/ecommerce/library/dto/ProductDto.java,6\2\623de7e945a3e5f1994721364fb2a50dcc31de13
-l
-<Library/src/main/java/com/ecommerce/library/model/Order.java,c\0\c00da091090e561f6fb786e66fc18a92c3e2f87a
-r
-BLibrary/src/main/java/com/ecommerce/library/model/OrderDetail.java,c\c\cc15cc229a472186d8812acbfa296b2364a80c1e
 y
 IAdmin/src/main/java/com/ecommerce/admin/controller/ProductController.java,3\d\3dba85a5006c754f2e5d35c990f2d9cae419d177
 w

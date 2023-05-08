@@ -18,10 +18,14 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
+    @Column(name = "order_date")
     private Date orderDate;
     private Date deliveryDate;
+    @Column(name = "total_price")
     private double totalPrice;
+    @Column(name = "shipping_fee")
     private double shippingFee;
+    @Column(name = "order_status")
     private String orderStatus;
     private String notes;
     @ManyToOne(fetch = FetchType.EAGER)
