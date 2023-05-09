@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'NewAthletic'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_287B9A91499A439E82307E7ADFA95B63 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8BDDC7E70C384544AA08D90956BA895F }}
           package: '*.jar'
